@@ -1,2 +1,27 @@
 ---
 # main tasks for <role name>
+- name: get temps
+  shell:
+    cmd: |
+      cpu=$(cat /sys/class/thermal/thermal_zone0/temp)
+      echo "GPU = $(/opt/vc/bin/vcgencmd measure_temp | awk -F'(=)' '{print $2}')"
+      echo "CPU = $((cpu/1000))'C"
+      echo "$((cpu))"
+  ignore_errors: True
+  register: temps
+- name: get poe fan speed settings
+  shell: cat /boot/config.txt | grep dtparam=poe | awk 'BEGIN { FS =  "="} ; {print $3}'
+  register: speeds
+- set_fact:
+    gpu_temp: "{{ temps.stdout_lines[0] }}"
+    cpu_temp_a: "{{ temps.stdout_lines[1] }}"
+    cpu_temp_b: "{{ ((temps.stdout_lines[2]|int)/1000)|round|int }}"
+    poe_fan0: "{{ speeds.stdout_lines[0] }}"
+    poe_fan1: "{{ speeds.stdout_lines[1] }}"
+    poe_fan2: "{{ speeds.stdout_lines[2] }}"
+    poe_fan3: "{{ speeds.stdout_lines[3] }}"
+  - name: results
+    debug:
+      msg:
+      - "{{gpu_temp}}"
+      - "{{cpu_temp_a}}"
