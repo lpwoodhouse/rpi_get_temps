@@ -10,8 +10,10 @@ None
 
 ## Role Variables
 
-None
-
+Available variables are listed below, along with default values (see ```defaults/main.yml```)
+```shell
+inc_fan_settings: true
+```
 ## Dependencies
 
 None
