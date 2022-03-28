@@ -1,8 +1,8 @@
-# Ansible Role: <role name>
+# Ansible Role: rpi_get_temps
 
-### <sub-heading>
+### Part of my Raspberry Pi cluster project
 
-Description here
+Gathers infomation on current CPU/GPU temperature readings and PoE hat fan speed levels.
 
 ## Requirements
 
@@ -10,12 +10,8 @@ None
 
 ## Role Variables
 
-Available variables are listed below, along with default values (see ```defaults/main.yml```)
-```shell
-variable1:
-variable2:
-...etc
-```
+None
+
 ## Dependencies
 
 None
@@ -24,7 +20,7 @@ None
 ```yaml
     - hosts: all
       roles:
-        - <role name>
+        - rpi_get_temps
 ```
 
 ## License
