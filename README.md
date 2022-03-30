@@ -27,7 +27,7 @@ None
 
 ## License
 
-GNU General Public Licence v3.0
+MIT
 
 ## Author Information
 
