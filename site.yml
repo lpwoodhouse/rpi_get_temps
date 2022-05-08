@@ -1,0 +1,7 @@
+---
+- name: get temps on rpi cluster nodes
+  gather_facts: true
+  
+  tasks:
+  
+  - include_tasks: tasks/main.yml
