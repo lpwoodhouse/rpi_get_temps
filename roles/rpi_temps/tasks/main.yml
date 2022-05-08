@@ -13,7 +13,7 @@
 - name: get poe fan speed settings
   shell: cat /boot/config.txt | grep dtparam=poe | awk 'BEGIN { FS =  "="} ; {print $3}'
   register: speeds
-  when: inc_fan_settings
+  when: inc_fan_settings|bool
   
 - set_fact:
     gpu_temp: "{{ temps.stdout_lines[0] }}"
@@ -25,7 +25,7 @@
     poe_fan1: "{{ speeds.stdout_lines[1] }}"
     poe_fan2: "{{ speeds.stdout_lines[2] }}"
     poe_fan3: "{{ speeds.stdout_lines[3] }}"
-  when: inc_fan_settings
+  when: inc_fan_settings|bool
   
 - name: cpu and gpu temps results
   debug:
@@ -40,4 +40,4 @@
     - "{{poe_fan1}}"
     - "{{poe_fan2}}"
     - "{{poe_fan3}}"
-  when: inc_fan_settings
+  when: inc_fan_settings|bool
