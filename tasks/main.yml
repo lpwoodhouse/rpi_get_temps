@@ -22,7 +22,7 @@
     cpu_temp_a: "{{ temps.stdout_lines[1] }}"
     cpu_temp_b: "{{ ((temps.stdout_lines[2]|int)/1000)|round|int }}"
 
-- set_facts:
+- set_fact:
     poe_fan0: "{{ speeds.stdout_lines[0] }}"
     poe_fan1: "{{ speeds.stdout_lines[1] }}"
     poe_fan2: "{{ speeds.stdout_lines[2] }}"
