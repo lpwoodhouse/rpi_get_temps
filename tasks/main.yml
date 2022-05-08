@@ -38,8 +38,8 @@
 - name: poe fan speed settings results
   debug:
     msg:
-    - "{{poe_fan0}}
-    - "{{poe_fan1}}
-    - "{{poe_fan2}}
-    - "{{poe_fan3}}
+    - "{{poe_fan0}}"
+    - "{{poe_fan1}}"
+    - "{{poe_fan2}}"
+    - "{{poe_fan3}}"
   when: inc_fan_settings
