@@ -22,7 +22,7 @@ None
 ```yaml
     - hosts: all
       roles:
-        - rpi_get_temps
+        - rpi_temps
 ```
 
 ## License
