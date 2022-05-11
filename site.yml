@@ -1,7 +1,6 @@
 ---
 - name: get temps on rpi cluster nodes
   hosts: all
-  become: true
   gather_facts: true
    
   roles:
